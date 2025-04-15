@@ -6,6 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>I miei animali Preferiti</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="http://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="http://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="http://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const { useState } = React;
+      const ReactApp = () => {
+        const animals = ["Cane", "Gatto", "Pappagallo", "Cavallo", "Panda"];
+        return (
+          <div>
+            <details>
+              <summary>Animali</summary>
+              <ul>
+                {animals.map((animal, index) => (
+                  <li key={index}>{animal}</li>
+                ))}
+              </ul>
+            </details>
+          </div>
+        );
+      };
+    </script>
+    <script type="text/babel">
+      const { createRoot } = ReactDOM;
+      const listaAnimali = document.querySelector(".lista-animali");
+      const root = createRoot(listaAnimali);
+      root.render(<ReactApp />);
+    </script>
   </head>
   <body>
     <header>
