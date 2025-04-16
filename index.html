@@ -12,9 +12,24 @@
     <script type="text/babel">
       const { useState } = React;
       const ReactApp = () => {
-        const animals = ["Cane", "Gatto", "Pappagallo", "Cavallo", "Panda"];
+        const animalsChoices = [
+          "Cane",
+          "Gatto",
+          "Pappagallo",
+          "Cavallo",
+          "Panda",
+        ];
+
+        const [animals, setAnimals] = useState([]);
+        const addAnimal = () => {
+          const randomIndex = Math.floor(Math.random() * animalsChoices.length);
+          const randomAnimal = animalsChoices[randomIndex];
+          setAnimals((curr) => [...curr, randomAnimal]);
+        };
+
         return (
           <div>
+            <button onClick={addAnimal}>Aggiungi Animale</button>
             <details>
               <summary>Animali</summary>
               <ul>
